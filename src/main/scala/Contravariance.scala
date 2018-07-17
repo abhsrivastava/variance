@@ -9,4 +9,8 @@ object Contravariance extends App {
 
     val ds3 : Keeper[Dog] = new PetKeeper // PetKeeper is Keeper[Pet]
     ds3.tend(Dog("scooby"))
+
+    // this will not compile because Keeper is not covariant
+    val ds4: Keeper[Pet] = new DogKeeper // DogKeeper is Keeper[Dog]
+    ds4.tend(Dog("scooby"))
 }
